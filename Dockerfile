@@ -3,7 +3,7 @@ FROM node:23-slim AS setup
 WORKDIR /var/www/app
 
 COPY package.json package-lock.json ./
-COPY . /var/www/app/
+COPY . .
 
 RUN npm install
 
