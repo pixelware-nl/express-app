@@ -1,10 +1,12 @@
-FROM node:23-alpine AS setup
+FROM node:23-slim AS setup
 
-WORKDIR /var/wwww/html
+WORKDIR /var/www/app
 
 COPY package.json package-lock.json ./
-COPY . .
+COPY . /var/www/app/
 
 RUN npm install
+
+WORKDIR /var/www/app/src
 
 CMD ["node", "app.js"]
